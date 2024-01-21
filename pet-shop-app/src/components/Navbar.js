@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { BiMoon } from "react-icons/bi";
 import { AiOutlineCloud } from "react-icons/ai";
+import { Link } from "react-scroll";
 
 const Navbar = () => {
   const [isMenuActive, setIsMenuActive] = useState(false);
@@ -37,6 +38,7 @@ const Navbar = () => {
     setIsDarkMode(!isDarkMode);
     localStorage.setItem("darkMode", isDarkMode ? "disabled" : "enabled");
   };
+
   return (
     <header className={`header ${isMenuActive ? "cloud-active" : ""}`}>
       <nav
@@ -44,29 +46,39 @@ const Navbar = () => {
           isScrolled && !isMenuActive ? "scrolled" : ""
         }`}
       >
-        <a href="http://" className="nav-logo">
+        <Link to="home" smooth={true} duration={500} className="nav-logo">
           Paws n’ Purr
-        </a>
+        </Link>
         <ul className={isMenuActive ? "nav-menu active" : "nav-menu"}>
           <li className="nav-item">
-            <a href="http://" className="nav-link">
+            <Link to="home" smooth={true} duration={500} className="nav-link">
               Home
-            </a>
+            </Link>
           </li>
           <li className="nav-item">
-            <a href="http://" className="nav-link">
+            <Link to="about" smooth={true} duration={500} className="nav-link">
               About Us
-            </a>
+            </Link>
           </li>
           <li className="nav-item">
-            <a href="http://" className="nav-link">
+            <Link
+              to="services"
+              smooth={true}
+              duration={500}
+              className="nav-link"
+            >
               Services
-            </a>
+            </Link>
           </li>
           <li className="nav-item">
-            <a href="http://" className="nav-link">
+            <Link
+              to="contact"
+              smooth={true}
+              duration={500}
+              className="nav-link"
+            >
               Contact
-            </a>
+            </Link>
           </li>
         </ul>
         <div className="icon" onClick={handleToggleDarkMode}>
@@ -88,4 +100,5 @@ const Navbar = () => {
     </header>
   );
 };
+
 export default Navbar;
